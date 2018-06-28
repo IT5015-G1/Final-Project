@@ -85,14 +85,10 @@
 			<div class="col-xs-10">
 				<div id="container">
 					<div id="slide">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
+						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
+						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
+						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
+						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
 					</div>
 				</div>
 			</div>

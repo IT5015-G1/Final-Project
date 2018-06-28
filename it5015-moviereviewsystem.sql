@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 12:58 PM
+-- Generation Time: Jun 28, 2018 at 02:42 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -30,10 +30,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `director` (
   `director_id` int(11) NOT NULL,
-  `first_name` int(11) NOT NULL,
-  `last_name` int(11) NOT NULL,
-  `email` int(11) NOT NULL
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `director`
+--
+
+INSERT INTO `director` (`director_id`, `first_name`, `last_name`, `email`) VALUES
+(1, 'Marian', 'Mozo', 'yaneemozo@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -45,6 +52,13 @@ CREATE TABLE `genre` (
   `genre_id` int(11) NOT NULL,
   `genre_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `genre`
+--
+
+INSERT INTO `genre` (`genre_id`, `genre_name`) VALUES
+(1, 'Horror');
 
 -- --------------------------------------------------------
 
@@ -58,8 +72,15 @@ CREATE TABLE `movies` (
   `year_released` int(4) NOT NULL,
   `genre_id` int(11) NOT NULL,
   `director_id` int(11) NOT NULL,
-  `movie_img` varchar(50) NOT NULL
+  `movie_img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `movies`
+--
+
+INSERT INTO `movies` (`movie_id`, `movie_name`, `year_released`, `genre_id`, `director_id`, `movie_img`) VALUES
+(3, 'Insiduous 2', 1998, 1, 1, 'img/Horror/lavan.jpg');
 
 -- --------------------------------------------------------
 
@@ -121,7 +142,8 @@ ALTER TABLE `genre`
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movie_id`),
   ADD UNIQUE KEY `genre_id` (`genre_id`),
-  ADD UNIQUE KEY `director_id` (`director_id`);
+  ADD UNIQUE KEY `director_id` (`director_id`),
+  ADD KEY `genre_id_2` (`genre_id`);
 
 --
 -- Indexes for table `review`
@@ -145,19 +167,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `director`
 --
 ALTER TABLE `director`
-  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `review`
