@@ -26,6 +26,14 @@
 				}
 				
 			?>!
+			<div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='height:30px'>
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" style='min-width: 100px;'>
+			    <li><a href="index.php"><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
+			  </ul>
+			</div>
 		</div>
 	</div>
 
