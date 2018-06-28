@@ -53,8 +53,8 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>Romance! Awwe Heart Heart! </h1>
-					<p>Some description here...</p>
+					<h1>Romance Movies</h1>
+					<p>are love stories, or affairs of the heart that center on passion, emotion, and the romantic, affectionate involvement of the main characters (usually a leading man and lady), and the journey that their love takes through courtship or marriage.</p>
 					<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 				<div class="col-md-2">

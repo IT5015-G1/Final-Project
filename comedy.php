@@ -53,8 +53,8 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>Comedy! Haha! </h1>
-					<p>Some description here...</p>
+					<h1>Comedy Movies</h1>
+					<p>films in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect</p>
 					<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 				<div class="col-md-2">

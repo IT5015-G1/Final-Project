@@ -53,8 +53,8 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>Action! Pak! Pow! </h1>
-					<p>Some description here...</p>
+					<h1>Action Movies</h1>
+					<p>is a film genre in which the protagonist or protagonists are thrust into a series of challenges that typically include violence, extended fighting, physical feats, and frantic chases.</p>
 					<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 				<div class="col-md-2">

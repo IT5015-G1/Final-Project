@@ -53,8 +53,8 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>Fantasy! Wow Magiic! </h1>
-					<p>Some description here...</p>
+					<h1>Fantasy Movies</h1>
+					<p>films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds</p>
 					<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 				<div class="col-md-2">
