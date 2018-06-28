@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <html>
 <head>
 	<link rel='icon' href="img/logo.png">
@@ -17,17 +21,35 @@
 		</div>
 		<div class="col-md-8"></div>
 		<div class="col-md-2 header">
-			<br>Hi Guest!
+			<br>Hi 
+			<?php 
+				if(isset($_GET['id']) && isset($_GET['firstName'])){
+					echo "<b>".urldecode($_GET['firstName'])."</b>";
+				}else{
+					echo "Guest";
+				}
+				
+			?>!
 		</div>
 	</div>
 
 	<div class="container">
 		<ul class="nav nav-tabs navs">
-			<li class="active"><a href="horror.php">Horror</a></li>
-			<li><a href="comedy.php">Comedy</a></li>
-			<li><a href="romance.php">Romance</a></li>
-			<li><a href="fantasy.php">Fantasy</a></li>
-			<li><a href="action.php">Action</a></li>
+			<?php
+				if(isset($_GET['id']) && isset($_GET['firstName'])){
+					echo "<li class='active'><a href='horror.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Horror</a></li>";
+					echo "<li><a href='comedy.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Comedy</a></li>";
+					echo "<li><a href='romance.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Romance</a></li>";
+					echo "<li><a href='fantasy.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Fantasy</a></li>";
+					echo "<li><a href='action.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Action</a></li>";
+				}else{
+					echo "<li class='active'><a href='horror.php'>Horror</a></li>";
+					echo "<li><a href='comedy.php'>Comedy</a></li>";
+					echo "<li><a href='romance.php'>Romance</a></li>";
+					echo "<li><a href='fantasy.php'>Fantasy</a></li>";
+					echo "<li><a href='action.php'>Action</a></li>";
+				}
+			?>
 		</ul>
 		<br>
 		<!-- <p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find out how this can be done.</p> -->
@@ -35,8 +57,8 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>Horror! Omg! </h1>
-					<p>Some description here...</p>
+					<h1>Horror Movies </h1>
+					<p>is a film that seeks to elicit a physiological reaction, such as an elevated heartbeat, through the use of fear and shocking one's audiences.</p>
 					<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 				<div class="col-md-2">
