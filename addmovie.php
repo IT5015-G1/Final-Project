@@ -1,4 +1,8 @@
 <?php
+	//Need: 
+
+	//genre of the movie
+	$genre = "horror";
   // Create database connection
   include("sql_connect.php");
 
@@ -7,11 +11,10 @@
 
   	// image file directory
   	//$target = "img/Genre/".basename($image);
-  	$genre = "Horror";
   	$target = "img/".$genre."/".basename($_FILES['image']['name']);
 
   	$sql = "INSERT INTO `movies` (`movie_id`, `movie_name`, `year_released`, `genre_id`, `director_id`, `movie_img`) VALUES (NULL, '".$_POST['movieTitle']."', '".$_POST['movieDate']."', '1', '1', '".$target."')";
-  	echo $sql;
+  	
   	// execute query
   	$movieCreate = mysqli_query($mysqli, $sql);
   	if($movieCreate){
@@ -22,6 +25,8 @@
 	  	}
   	}
   	
+  }else if(isset($_POST['cancelAddMovie'])){
+  	header("location:".$genre.".php");
   }
 ?>
 
@@ -55,7 +60,7 @@
 				<input class="form-control" type="file" required="required" name='image'>
 				<div class='row text-center' style='margin-bottom:10px; margin-top:50px'>
 		  			<button type='submit' class='btn btnLogin chckinMovieRev' name='addmovie'>ADD MOVIE</button><br><br>
-		  			<button type='submit'class='btn btnAdd cancelAction'>CANCEL</button>
+		  			<button type='submit'class='btn btnAdd cancelAction' name='addmovie'>CANCEL</button>
 	  			</div>
   			</form>
 		</div>
