@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 02:42 PM
+-- Generation Time: Jun 29, 2018 at 11:10 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -30,8 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `director` (
   `director_id` int(11) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
+  `directorName` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,8 +38,8 @@ CREATE TABLE `director` (
 -- Dumping data for table `director`
 --
 
-INSERT INTO `director` (`director_id`, `first_name`, `last_name`, `email`) VALUES
-(1, 'Marian', 'Mozo', 'yaneemozo@gmail.com');
+INSERT INTO `director` (`director_id`, `directorName`, `email`) VALUES
+(1, '', 'yaneemozo@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -58,29 +57,41 @@ CREATE TABLE `genre` (
 --
 
 INSERT INTO `genre` (`genre_id`, `genre_name`) VALUES
-(1, 'Horror');
+(1, 'Horror'),
+(2, 'Comedy'),
+(3, 'Fantasy'),
+(4, 'Romance'),
+(5, 'Action');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movies`
+-- Table structure for table `movie`
 --
 
-CREATE TABLE `movies` (
+CREATE TABLE `movie` (
   `movie_id` int(11) NOT NULL,
-  `movie_name` varchar(30) NOT NULL,
-  `year_released` int(4) NOT NULL,
+  `movie_title` varchar(200) NOT NULL,
   `genre_id` int(11) NOT NULL,
   `director_id` int(11) NOT NULL,
-  `movie_img` varchar(100) NOT NULL
+  `year` varchar(4) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `rating` int(1) NOT NULL,
+  `aboutMovie` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `movies`
+-- Dumping data for table `movie`
 --
 
-INSERT INTO `movies` (`movie_id`, `movie_name`, `year_released`, `genre_id`, `director_id`, `movie_img`) VALUES
-(3, 'Insiduous 2', 1998, 1, 1, 'img/Horror/lavan.jpg');
+INSERT INTO `movie` (`movie_id`, `movie_title`, `genre_id`, `director_id`, `year`, `image`, `rating`, `aboutMovie`) VALUES
+(18, 'bitch', 1, 1, '1998', 'img/fantasy/1star.png', 1, ''),
+(19, 'bitch', 1, 1, '1998', 'img/fantasy/1star.png', 1, ''),
+(20, '', 1, 1, '1998', 'img/fantasy/', 1, ''),
+(21, '', 1, 1, '1998', 'img/fantasy/', 1, ''),
+(22, '', 1, 1, '1998', 'img/fantasy/', 1, ''),
+(23, '', 1, 1, '1998', 'img/fantasy/', 1, ''),
+(24, '', 1, 1, '1998', 'img/fantasy/', 1, '');
 
 -- --------------------------------------------------------
 
@@ -92,7 +103,6 @@ CREATE TABLE `review` (
   `review_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
   `review` varchar(1000) NOT NULL,
-  `rating` int(1) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -118,7 +128,10 @@ INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `password`) V
 (24, 'User Movie', 'User', 'user@gmail.com', '6edf26f6e0badff12fca32b16db38b'),
 (25, 'This is Me', 'Null', 'null@gmail.com', '340b979d4f4c1cb72b4b86afe5bf22'),
 (26, 'Kent Michael', 'Talisaysay', 'tkentmichaell@gmail.com', 'f1f53f75de705df6137dc0a08aee41'),
-(27, 'Sheena', 'Alcantara', 'sheena.alcantara@gmail.com', '462a684fc77874fac2a4b51d18d4ca00');
+(27, 'Sheena', 'Alcantara', 'sheena.alcantara@gmail.com', '462a684fc77874fac2a4b51d18d4ca00'),
+(28, 'admin', 'admin', 'admin@gmail.com', '751cb3f4aa17c36186f4856c8982bf27'),
+(29, 'admin1', 'admin1', 'admin1@gmail.com', 'e66055e8e308770492a44bf16e875127'),
+(30, '1', '1', '1@gmail.com', 'e2b6923e117a526b30b0ac235f5e05b4');
 
 --
 -- Indexes for dumped tables
@@ -137,13 +150,12 @@ ALTER TABLE `genre`
   ADD PRIMARY KEY (`genre_id`);
 
 --
--- Indexes for table `movies`
+-- Indexes for table `movie`
 --
-ALTER TABLE `movies`
+ALTER TABLE `movie`
   ADD PRIMARY KEY (`movie_id`),
-  ADD UNIQUE KEY `genre_id` (`genre_id`),
-  ADD UNIQUE KEY `director_id` (`director_id`),
-  ADD KEY `genre_id_2` (`genre_id`);
+  ADD KEY `genre_id` (`genre_id`),
+  ADD KEY `director_id` (`director_id`);
 
 --
 -- Indexes for table `review`
@@ -173,13 +185,13 @@ ALTER TABLE `director`
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `movies`
+-- AUTO_INCREMENT for table `movie`
 --
-ALTER TABLE `movies`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+ALTER TABLE `movie`
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -191,18 +203,18 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `movies`
+-- Constraints for table `movie`
 --
-ALTER TABLE `movies`
-  ADD CONSTRAINT `movies_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movies_ibfk_2` FOREIGN KEY (`director_id`) REFERENCES `director` (`director_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `movie`
+  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_ibfk_2` FOREIGN KEY (`director_id`) REFERENCES `director` (`director_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`
