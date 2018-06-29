@@ -1,3 +1,6 @@
+<?php
+include("sql_connect.php");
+?>
 <html>
 <head>
 	<link rel='icon' href="img/logo.png">
@@ -41,16 +44,37 @@
 		<ul class="nav nav-tabs navs">
 			<?php
 				if(isset($_GET['id']) && isset($_GET['firstName'])){
-					echo "<li><a href='horror.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Horror</a></li>";
-					echo "<li><a href='comedy.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Comedy</a></li>";
-					echo "<li><a href='romance.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Romance</a></li>";
-					echo "<li class='active'><a href='fantasy.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Fantasy</a></li>";
-					echo "<li><a href='action.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."'>Action</a></li>";
+					$generateGenres = "SELECT * FROM `genre`";
+					$result = mysqli_query($mysqli, $generateGenres);
+
+					if(($result->num_rows) != 0){
+						while($row = mysqli_fetch_array($result)){
+							switch($row[1]){
+								case "Horror": 
+									echo "<li><a href='horror.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$row[0]."&&genreName=".$row[1]."'>".$row[1]."</a></li>";
+									break;
+								case "Comedy":
+									echo "<li><a href='comedy.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$row[0]."&&genreName=".$row[1]."'>".$row[1]."</a></li>";
+									break;
+								case "Action":
+									echo "<li><a href='action.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$row[0]."&&genreName=".$row[1]."'>".$row[1]."</a></li>";
+									break;
+								case "Fantasy":
+									echo "<li class='active'><a href='fantasy.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$row[0]."&&genreName=".$row[1]."'>".$row[1]."</a></li>";
+									break;
+								case "Romance":
+									echo "<li><a href='romance.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$row[0]."&&genreName=".$row[1]."'>".$row[1]."</a></li>";
+									break;
+
+							}							
+						}
+
+					}
 				}else{
-					echo "<li><a href='horror.php'>Horror</a></li>";
+					echo "<li class='active'><a href='horror.php'>Horror</a></li>";
 					echo "<li><a href='comedy.php'>Comedy</a></li>";
 					echo "<li><a href='romance.php'>Romance</a></li>";
-					echo "<li class='active'><a href='fantasy.php'>Fantasy</a></li>";
+					echo "<li><a href='fantasy.php'>Fantasy</a></li>";
 					echo "<li><a href='action.php'>Action</a></li>";
 				}
 			?>
@@ -67,7 +91,9 @@
 				</div>
 				<div class="col-md-2">
 					<div class='row text-center' style='margin-bottom:10px; margin-top:50px'>
-			  			<a href="addmovie.php" class='btn btnLogin chckinMovieRev'>ADD MOVIE</a>
+			  			<?php
+							echo "<a href='addmovie.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."' class='btn btnLogin chckinMovieRev'>ADD MOVIE</a>";
+						?>
 		  			</div><br>
 				</div>
 			</div>

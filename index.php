@@ -2,12 +2,12 @@
 include("sql_connect.php");
 if(isset($_POST['email']) && isset($_POST['password'])){
   // $accountname = $_POST['accountname'];
-	echo $_POST['password'];
+	//echo $_POST['password'];
   	$password = md5($_POST['password']);
 
 
   	$loginAcc = mysqli_query($mysqli, "SELECT * FROM `user` WHERE email = '".$_POST['email']."' AND password = '".$password."'");
-  	echo "SELECT * FROM `user` WHERE email = '".$_POST['email']."' AND password = '".$password."'";
+  	//echo "SELECT * FROM `user` WHERE email = '".$_POST['email']."' AND password = '".$password."'";
  }
 ?>
 <html>
