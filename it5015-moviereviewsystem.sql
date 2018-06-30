@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 12:28 PM
+-- Generation Time: Jun 30, 2018 at 12:42 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -151,7 +151,11 @@ INSERT INTO `review` (`review_id`, `review`, `movie_id`, `user_id`) VALUES
 (22, 'There\'s a lot here for kids to like and nearly as much to keep parents from fidgeting.', 26, 34),
 (23, 'In many ways a conventional movie, but it unfolds with so much wit, panache, and visual ingenuity that it outstrips many a more high-concept film.', 26, 31),
 (24, 'What saves this big-budget cartoon behemoth is its modest, old-fashioned storytelling.', 26, 32),
-(25, 'It\'s surprisingly sophisticated, finding new ways to get us to look past stereotypes.', 26, 35);
+(25, 'It\'s surprisingly sophisticated, finding new ways to get us to look past stereotypes.', 26, 35),
+(26, 'Appealing performers and a couple of funny moments don\'t make up for a lazy and generic script in this predictable farce. This movie borrows characters and plots from many other movies.', 32, 40),
+(27, 'Reynolds\' hilariously offensive antihero serves up another round of snarky, trash-talking, gory, pop-culture-bashing shenanigans that will appeal to those who loved the first film.', 33, 39),
+(28, 'For better or for worse, Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan is unique, an important movie, a multiplex comedy that doubles as a conceptual art epic.', 34, 38),
+(29, 'Judge has a gift for delivering brutal satire in the trappings of low comedy and for making heroes out of ordinary people whose humanity makes them suspect in a world where every inch of space, including mental, is mediated.', 35, 37);
 
 -- --------------------------------------------------------
 
@@ -184,7 +188,11 @@ INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `password`) V
 (33, 'John Lloyd', 'Arante', 'jl@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
 (34, 'Jove ', 'Santos', 'jovegenel@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
 (35, 'Leah', 'Garcia', 'leah@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
-(36, 'Penuel', 'Calle', 'penuelcalle@gmail.com', '24e1c6c78c7d0e0d9fae33b69f8526af');
+(36, 'Penuel', 'Calle', 'penuelcalle@gmail.com', '24e1c6c78c7d0e0d9fae33b69f8526af'),
+(37, 'Seira', 'Fujiwara', 'mira@gmail.com', '21232f297a57a5a743894a0e4a801fc3'),
+(38, 'Shira ', 'Alice', 'shira@gmail.com', '21232f297a57a5a743894a0e4a801fc3'),
+(39, 'Alexias', 'Bell', 'alexias@gmail.com', '21232f297a57a5a743894a0e4a801fc3'),
+(40, 'Yuuki', 'Rosario', 'yukyuk@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -247,12 +255,12 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- Constraints for dumped tables
 --
