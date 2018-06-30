@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 09:26 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Jun 30, 2018 at 12:28 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -44,7 +42,11 @@ INSERT INTO `director` (`director_id`, `directorName`, `email`) VALUES
 (3, 'Rintaro', 'rintaro@gmail.com'),
 (4, 'James Mangold', 'james@gmail.com'),
 (5, 'Byron Howard', 'byron@gmail.com'),
-(6, 'Ernest B. Schoedsack', 'ernest@gmail.com');
+(6, 'Ernest B. Schoedsack', 'ernest@gmail.com'),
+(7, 'Keenen Ivory Wayans', 'keenen@gmail.com'),
+(8, 'David Leitch', 'leitch@gmail.com'),
+(9, 'Larry Charles', 'larrycharles@gmail.com'),
+(10, 'Mike Judge', 'mikejudge@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,11 @@ INSERT INTO `movie` (`movie_id`, `movie_title`, `genre_id`, `director_id`, `year
 (26, 'Zootopia', 5, 5, '2016', 'img/action/zootopia.jpg', 4, 'The modern mammal metropolis of Zootopia is a city like no other. Comprised of habitat neighborhoods like ritzy Sahara Square and frigid Tundratown, it\'s a melting pot where animals from every environment live together-a place where no matter what you are, from the biggest elephant to the smallest shrew, you can be anything. But when rookie Officer Judy Hopps (voice of Ginnifer Goodwin) arrives, she discovers that being the first bunny on a police force of big, tough animals isn\'t so easy. '),
 (27, 'Metropolis', 5, 3, '2002', 'img/action/metropolis.jpg', 4, 'Playing like a candy-colored hybrid of Fritz Lang\'s film of the same name and Ridley Scott\'s Blade Runner, Osamu Tezuka\'s Metropolis borrows its plot liberally from numerous legendary sci-fi sources (despite the fact that the original manga was released in 1945, certain cinematic aspects can\'t help but appearing overly familiar), all the while dazzling viewers on the same cutting-edge visual level as such anime classics as Akira and Ghost in the Shell. '),
 (28, 'Logan', 5, 4, '2017', 'img/action/logan.jpg', 3, 'It\'s 2029. Mutants are gone--or very nearly so. An isolated, despondent Logan is drinking his days away in a hideout on a remote stretch of the Mexican border, picking up petty cash as a driver for hire. His companions in exile are the outcast Caliban and an ailing Professor X, whose singular mind is plagued by worsening seizures. But Logan\'s attempts to hide from the world and his legacy abruptly end when a mysterious woman appears with an urgent request--that Logan shepherd an extraordinary young girl to safety. Soon, the claws come out as Logan must face off against dark forces and a villain from his own past on a live-or-die mission, one that will set the time-worn warrior on a path toward fulfilling his destiny.'),
-(29, 'KingKong', 5, 6, '1993', 'img/action/kingkong.png', 4, '\"How would you like to star opposite the tallest, darkest leading man in Hollywood?\" Enticed by these words, brunette leading lady Fay Wray dyed her hair blonde and accepted the role of Ann Darrow in King Kong -- and stayed with the project even after learning that her \"leading man\" was a 50-foot ape. The film introduces us to flamboyant, foolhardy documentary filmmaker Carl Denham (Robert Armstrong), who sails off to parts unknown to film his latest epic with leading lady Darrow in tow. Disembarking at Skull Island, they stumble on a ceremony in which the native dancers circle around a terrified-looking young girl, chanting, \"Kong! Kong!\" The chief (Noble Johnson) and witch doctor (Steve Clemente) spot Denham and company and order them to leave.');
+(29, 'KingKong', 5, 6, '1993', 'img/action/kingkong.png', 4, '\"How would you like to star opposite the tallest, darkest leading man in Hollywood?\" Enticed by these words, brunette leading lady Fay Wray dyed her hair blonde and accepted the role of Ann Darrow in King Kong -- and stayed with the project even after learning that her \"leading man\" was a 50-foot ape. The film introduces us to flamboyant, foolhardy documentary filmmaker Carl Denham (Robert Armstrong), who sails off to parts unknown to film his latest epic with leading lady Darrow in tow. Disembarking at Skull Island, they stumble on a ceremony in which the native dancers circle around a terrified-looking young girl, chanting, \"Kong! Kong!\" The chief (Noble Johnson) and witch doctor (Steve Clemente) spot Denham and company and order them to leave.'),
+(32, 'White Chicks', 2, 7, '1998', 'img/comedy/white_chicks.PNG', 3, 'White Chicks is a 2004 American comedy film directed by Keenen Ivory Wayans, who wrote and produced alongside his brothers Shawn and Marlon Wayans. Distributed by Revolution Studios and Columbia Pictures, Shawn and Marlon Wayans portray two African American male FBI agents who disguise themselves as two white women.'),
+(33, 'Deadpool 2', 2, 8, '1998', 'img/comedy/deadpool_2.PNG', 5, 'Deadpool 2 is a 2018 American superhero film based on the Marvel Comics character Deadpool, distributed by 20th Century Fox. It is the eleventh installment in the X-Men film series, and a direct sequel to the 2016 film Deadpool. The film is directed by David Leitch from a script by Rhett Reese, Paul Wernick, and Ryan Reynolds, with Reynolds starring in the title role alongside Josh Brolin, Morena Baccarin, Julian Dennison, Zazie Beetz, T.J. Miller, Brianna Hildebrand, and Jack Kesy. In the film, Deadpool forms the team X-Force to protect a young mutant from the time-traveling soldier Cable.'),
+(34, 'Borat! Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan', 2, 9, '1998', 'img/borat.PNG', 4, 'Borat! Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan (or simply Borat) is a 2006 British-American mockumentary comedy film written and produced by British comedian Sacha Baron Cohen who also plays the title character, Borat Sagdiyev, a fictitious Kazakh journalist travelling through the United States recording real-life interactions with Americans. The film was directed by Larry Charles and distributed by 20th Century Fox.'),
+(35, 'Idiocracy', 2, 10, '1998', 'img/idiocracy.PNG', 4, 'Idiocracy is a 2006 American science fiction comedy film directed by Mike Judge and starring Luke Wilson, Maya Rudolph, and Dax Shepard. The film tells the story of two people who take part in a top-secret military human hibernation experiment, only to awaken 500 years later in a dystopian society where anti-intellectualism and commercialism have run rampant, and which is devoid of intellectual curiosity, social responsibility, and coherent notions of justice and human rights.');
 
 -- --------------------------------------------------------
 
@@ -177,7 +183,8 @@ INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `password`) V
 (32, 'Krystaliza ', 'Dayanan', 'krystal@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
 (33, 'John Lloyd', 'Arante', 'jl@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
 (34, 'Jove ', 'Santos', 'jovegenel@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
-(35, 'Leah', 'Garcia', 'leah@gmail.com', '01168f39bf9c24df55f1044a068ac7ee');
+(35, 'Leah', 'Garcia', 'leah@gmail.com', '01168f39bf9c24df55f1044a068ac7ee'),
+(36, 'Penuel', 'Calle', 'penuelcalle@gmail.com', '24e1c6c78c7d0e0d9fae33b69f8526af');
 
 --
 -- Indexes for dumped tables
@@ -225,32 +232,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `director`
 --
 ALTER TABLE `director`
-  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
   MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- Constraints for dumped tables
 --
@@ -268,7 +270,6 @@ ALTER TABLE `movie`
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

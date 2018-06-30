@@ -108,14 +108,10 @@ include("sql_connect.php");
 			<div class="col-xs-10">
 				<div id="container">
 					<div id="slide">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
+						<img src="img/comedy/white_chicks.PNG" class="moviePoster">
+						<img src="img/comedy/deadpool_2.PNG" class="moviePoster">
+						<img src="img/comedy/borat.PNG" class="moviePoster">
+						<img src="img/comedy/idiocracy.PNG" class="moviePoster">
 					</div>
 				</div>
 			</div>
