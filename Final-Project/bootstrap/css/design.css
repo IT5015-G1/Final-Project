@@ -1,0 +1,150 @@
+.logoPic{
+	height: 170px;
+	margin-top: 20px;
+}
+
+.logoPicHomepage{
+	height: 80px;
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+.login{
+	border: solid #bab6b6 1px;
+	height: 300px;
+	font-family: Glacial Indifference;
+}
+
+.register{
+	border: solid #bab6b6 1px;
+	height: 400px;
+	font-family: Glacial Indifference;
+}
+
+.chckinMovieRev{
+	background-color:rgba(0,0,0,0.8);
+}
+
+.chckinMovieRev:hover{
+	background-color:rgba(246,246,246,0.5);
+	color:rgba(0,0,0,0.8);
+	border-color: rgba(0,0,0,0.8);
+}
+
+.btnLogin{
+	color:white;
+	width: 80%;
+	padding:13px;
+	text-decoration: none;
+	border-radius:0;
+}
+
+.designCreateAccount{
+	border-color: rgba(0,0,0,0.8);
+	color:rgba(0,0,0,0.8);
+}
+
+.designCreateAccount:hover{
+	background-color:rgba(0,0,0,0.8);
+	border-color: rgba(0,0,0,0.8);
+	color:#f6f6f6;
+}
+
+.header{
+	margin:20px;
+	float: right;
+}
+
+.navs{
+	font-family: Glacial Indifference;
+	font-size: 20px;
+}
+
+/*horizontal scroll*/
+#rowsize{
+	height: 160px;
+}
+
+#panLeft {
+    float: right;
+}
+
+#panRight {
+    float: left;
+}
+
+#container{
+    width:100%;
+    overflow-x:hidden;
+    border-radius: 10px;
+    /*background-color: rgba(255, 255, 255, 0.3);*/
+}
+
+.col-xs-10 img:hover{
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  	transform: translate3d(0, 0, 0);
+  	backface-visibility: hidden;
+  	perspective: 1000px;
+}
+
+/*.panner:hover{
+	-webkit-transform: rotate(10deg);
+	transform: rotate(10deg);
+		/*-webkit-filter: drop-shadow(0px 0px 13px rgba(255, 255, 0, 0.8));*/
+/*}*/
+
+.panner img{
+	height: 40px;
+	margin-top: 120px;
+	text-align: center;
+}
+
+#slide{
+	 width:2500px;
+	 height: 300px
+}
+
+/*end horizontal scroll*/
+
+.moviePoster{
+	height: 85%;
+}
+
+.jumbotron{
+	font-family: Glacial Indifference;
+	background-color: white;
+	border: solid #bab6b6 1px;
+	padding:0px;
+}
+
+.posterHeaderPic{
+	height: 230px;
+}
+
+.addmovies{
+	border: solid #bab6b6 1px;
+	font-family: Glacial Indifference;
+	height: 700px;
+}
+
+.cancelAction:hover{
+	background-color:rgba(0,0,0,0.8);
+	color:white;
+}
+
+.cancelAction{
+	background-color:rgba(246,246,246,0.5);
+	border-color: rgba(0,0,0,0.8);
+}
+
+.btnAdd{
+	color:black;
+	width: 80%;
+	padding:13px;
+	text-decoration: none;
+	border-radius:0;
+}
+
+.star{
+	height: 50px;
+}
