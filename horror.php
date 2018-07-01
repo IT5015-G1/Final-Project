@@ -1,7 +1,6 @@
 <?php
 include("sql_connect.php");
 ?>
-
 <html>
 <head>
 	<link rel='icon' href="img/logo.png">
@@ -71,12 +70,6 @@ include("sql_connect.php");
 						}
 
 					}
-				}else{
-					echo "<li class='active'><a href='horror.php'>Horror</a></li>";
-					echo "<li><a href='comedy.php'>Comedy</a></li>";
-					echo "<li><a href='romance.php'>Romance</a></li>";
-					echo "<li><a href='fantasy.php'>Fantasy</a></li>";
-					echo "<li><a href='action.php'>Action</a></li>";
 				}
 			?>
 		</ul>
@@ -86,13 +79,13 @@ include("sql_connect.php");
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-10">
-					<h1>Horror Movies </h1>
+					<h1>Horror Movies</h1>
 					<p>is a film that seeks to elicit a physiological reaction, such as an elevated heartbeat, through the use of fear and shocking one's audiences.</p>
 					<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 				<div class="col-md-2">
 					<div class='row text-center' style='margin-bottom:10px; margin-top:50px'>
-						<?php
+			  			<?php
 							echo "<a href='addmovie.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."' class='btn btnLogin chckinMovieRev'>ADD MOVIE</a>";
 						?>
 		  			</div><br>
@@ -108,10 +101,16 @@ include("sql_connect.php");
 			<div class="col-xs-10">
 				<div id="container">
 					<div id="slide">
-						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
-						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
-						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
-						<a href='viewmovie.php'><img src="img/Horror/Insidious.jpg" class="moviePoster"></a>
+						<?php
+							$actionImages = "SELECT * FROM `movie` WHERE genre_id=".$_GET['genreId'];
+							$result = mysqli_query($mysqli, $actionImages);
+
+							if(($result->num_rows) != 0){
+								while($row = mysqli_fetch_array($result)){
+									echo "<a href='viewmovie".$_GET['genreName'].".php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$row[0]."'><img src='".$row[5]."' class='moviePoster' width ='161.99px' height='254.99px' style='margin-right:10px'></a>";
+								}
+							}
+						?>
 					</div>
 				</div>
 			</div>

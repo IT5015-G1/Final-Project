@@ -70,12 +70,6 @@ include("sql_connect.php");
 						}
 
 					}
-				}else{
-					echo "<li class='active'><a href='horror.php'>Horror</a></li>";
-					echo "<li><a href='comedy.php'>Comedy</a></li>";
-					echo "<li><a href='romance.php'>Romance</a></li>";
-					echo "<li><a href='fantasy.php'>Fantasy</a></li>";
-					echo "<li><a href='action.php'>Action</a></li>";
 				}
 			?>
 		</ul>
@@ -107,14 +101,16 @@ include("sql_connect.php");
 			<div class="col-xs-10">
 				<div id="container">
 					<div id="slide">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
-						<img src="img/logoo.png" class="moviePoster">
+						<?php
+							$actionImages = "SELECT * FROM `movie` WHERE genre_id=".$_GET['genreId'];
+							$result = mysqli_query($mysqli, $actionImages);
+
+							if(($result->num_rows) != 0){
+								while($row = mysqli_fetch_array($result)){
+									echo "<a href='viewmovie".$_GET['genreName'].".php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$row[0]."'><img src='".$row[5]."' class='moviePoster' width ='161.99px' height='254.99px' style='margin-right:10px'></a>";
+								}
+							}
+						?>
 					</div>
 				</div>
 			</div>
@@ -168,3 +164,4 @@ include("sql_connect.php");
 
 }());
 </script>
+

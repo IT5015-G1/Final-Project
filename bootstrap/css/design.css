@@ -95,12 +95,13 @@
 
 .panner img{
 	height: 40px;
-	margin-top: 50px;
+	margin-top: 120px;
 	text-align: center;
 }
 
 #slide{
 	 width:2500px;
+	 height: 300px
 }
 
 /*end horizontal scroll*/
@@ -123,6 +124,7 @@
 .addmovies{
 	border: solid #bab6b6 1px;
 	font-family: Glacial Indifference;
+	height: 700px;
 }
 
 .cancelAction:hover{

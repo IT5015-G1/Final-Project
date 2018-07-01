@@ -33,7 +33,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 			      		$data = mysqli_fetch_row($loginAcc);	
 			        	session_start(); //to acces session/super global variables
 			        	$_SESSION['user'] = urldecode($_GET['firstName']);
-			        	header("location:horror.php?id=".$data[0]."&&firstName=".$data[1]);
+			        	header("location:horror.php?id=".$data[0]."&&firstName=".$data[1]."&&genreId=1&&genreName=Horror");
 			      	}else{
 			        	echo "<div class='success-pop'>";
 				      	echo "<div class='col-md-4 col-md-offset-4 text-center' style='color:#292929;

@@ -29,7 +29,6 @@ include("sql_connect.php");
 				}
 				
 			?>!
-			<!-- Single button -->
 			<div class="btn-group">
 			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='height:30px'>
 			    <span class="caret"></span>
@@ -67,16 +66,10 @@ include("sql_connect.php");
 									echo "<li><a href='romance.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$row[0]."&&genreName=".$row[1]."'>".$row[1]."</a></li>";
 									break;
 
-							}						
+							}							
 						}
 
 					}
-				}else{
-					echo "<li class='active'><a href='horror.php'>Horror</a></li>";
-					echo "<li><a href='comedy.php'>Comedy</a></li>";
-					echo "<li><a href='romance.php'>Romance</a></li>";
-					echo "<li><a href='fantasy.php'>Fantasy</a></li>";
-					echo "<li><a href='action.php'>Action</a></li>";
 				}
 			?>
 		</ul>
@@ -108,10 +101,16 @@ include("sql_connect.php");
 			<div class="col-xs-10">
 				<div id="container">
 					<div id="slide">
-						<img src="img/comedy/white_chicks.PNG" class="moviePoster">
-						<img src="img/comedy/deadpool_2.PNG" class="moviePoster">
-						<img src="img/comedy/borat.PNG" class="moviePoster">
-						<img src="img/comedy/idiocracy.PNG" class="moviePoster">
+						<?php
+							$actionImages = "SELECT * FROM `movie` WHERE genre_id=".$_GET['genreId'];
+							$result = mysqli_query($mysqli, $actionImages);
+
+							if(($result->num_rows) != 0){
+								while($row = mysqli_fetch_array($result)){
+									echo "<a href='viewmovie".$_GET['genreName'].".php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$row[0]."'><img src='".$row[5]."' class='moviePoster' width ='161.99px' height='254.99px' style='margin-right:10px'></a>";
+								}
+							}
+						?>
 					</div>
 				</div>
 			</div>
