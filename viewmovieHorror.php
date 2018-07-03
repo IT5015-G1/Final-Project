@@ -151,7 +151,12 @@ include("sql_connect.php");
 								}else{
 									echo "<h4>".$row[2]."</h4>";
 								}
-								echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i><br>";
+								if($row[6] == $_GET['id']){
+									echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i>
+									<a href='editReview.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."&&reviewId=".$row[0]."' style='padding:5px; color:#f0b518;'><span class='glyphicon glyphicon-plus'></span></a><br>";
+								}else{
+									echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i><br>";
+								}
 								echo $row[3]." <hr>";
 							}
 						}

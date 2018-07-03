@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2018 at 12:27 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Jul 03, 2018 at 02:23 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,8 +43,7 @@ INSERT INTO `director` (`director_id`, `directorName`) VALUES
 (8, 'New Director 1'),
 (9, ''),
 (10, 'IDK The Author Name'),
-(11, 'Laban'),
-(12, 'Adam Shankman');
+(11, 'Laban');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ INSERT INTO `movie` (`movie_id`, `movie_title`, `genre_id`, `director_id`, `year
 (152, 'Wonderwoman', 3, 9, '2017', 'img/fantasy/wonderwoman.jpg', 3, 'laban Wonderwoman'),
 (154, 'Madmax', 5, 10, '2018', 'img/action/madmax.jpg', 1, 'madmax'),
 (155, 'Deadpool 2', 2, 11, '2014', 'img/comedy/deadpool_2.PNG', 1, 'asfadsf'),
-(156, 'A Walk to Remeber', 4, 12, '2002', 'img/romance/awalktorememer.jpg', 4, 'Set in North Carolina, "A Walk To Remember" follows the rite of passage of a jaded, aimless high school senior (Shane West) who falls in love with a guileless young woman (Mandy Moore) he and his friends once scorned. The two develop a powerful and inspirational relationship in which they discover truths that take most people a lifetime to learn.');
+(156, 'Idiocracy', 2, 9, '2014', 'img/comedy/idiocracy.PNG', 4, 'This is the movie about Idiocricy');
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,7 @@ CREATE TABLE `review` (
   `review_title` varchar(100) NOT NULL,
   `review` varchar(1000) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `date` date NOT NULL
+  `date` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -121,7 +122,11 @@ INSERT INTO `review` (`review_id`, `movie_id`, `review_title`, `review`, `user_i
 (23, 151, 'Laban Borat!!!', 'Borat ka!', 28, '0000-00-00'),
 (24, 152, 'Wonderwoman Review', 'laban Wonderwoman', 28, '2018-07-01'),
 (25, 154, 'Madmax Review', 'Madmax Review', 28, '0000-00-00'),
-(26, 156, 'Iconic Love Story', 'Mandy Moore stars as a Christian teenager who faces down fear, loneliness and loss while searching for ''her miracle.', 32, '2018-07-02');
+(26, 156, 'My Review on Idocracy!!!', 'this is another review!!!', 28, '2018-07-03'),
+(27, 151, 'Admin 2 Review on Borat!', 'This is my review on Borat!', 31, 'July 3, 2018'),
+(28, 152, 'Admin 2 Review on Wonderwoman!', 'This is a review on Wonderwoman', 31, '2018-07-03'),
+(29, 150, 'A Wrinkle in Time Review!!!', 'Laban Lang ta a Wrinkle in Time!!!', 31, 'July 3, 2018'),
+(30, 154, 'Review for Madmax!', 'This is a review for Madmax!', 31, 'July 3, 2018');
 
 -- --------------------------------------------------------
 
@@ -149,10 +154,7 @@ INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `password`) V
 (28, 'admin', 'admin', 'admin@gmail.com', '751cb3f4aa17c36186f4856c8982bf27'),
 (29, 'admin1', 'admin1', 'admin1@gmail.com', 'e66055e8e308770492a44bf16e875127'),
 (30, '1', '1', '1@gmail.com', 'e2b6923e117a526b30b0ac235f5e05b4'),
-(31, 'Sarah', 'Alcantara', 'sarah64phils@yahoo.com', '061fba5bdfc076bb7362616668de87c8'),
-(32, 'Sharmaine', 'Alcantara', 'sharskii21@gmail.com', 'e6a5ba0842a531163425d66839569a68'),
-(33, 'Matthew Ike', 'Alcantara', 'mia@gmail.com', '0291d0ee809eb60deedc864e0c10380d'),
-(34, 'Fortunato Ibarra', 'Alcantara', 'fortibsa@yahoo.com', '21831484a35cf1df7e7db1fc170c55f6');
+(31, 'admin2', 'admin2', 'admin2@gmail.com', '21eed4f2e9ab214fdbf00a2a091d63c4');
 
 --
 -- Indexes for dumped tables
@@ -200,27 +202,32 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `director`
 --
 ALTER TABLE `director`
-  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
   MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
   MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
 --
 -- Constraints for dumped tables
 --
@@ -238,6 +245,7 @@ ALTER TABLE `movie`
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

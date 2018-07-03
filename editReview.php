@@ -1,8 +1,8 @@
 <?php
 include("sql_connect.php");
-if(isset($_POST['addReview'])){
-	$sql = "INSERT INTO `review` (`review_id`, `movie_id`, `review_title`, `review`, `user_id`, `date`) VALUES (NULL, '".$_GET['movieId']."', '".$_POST['reviewTitle']."', '".$_POST['review']."', '".$_GET['id']."', DATE_FORMAT(CURDATE(),'%M %e, %Y'));";
-
+if(isset($_POST['reviewTitle'])){
+	$sql = "UPDATE `review` SET `review_title`='".$_POST['reviewTitle']."' ,`review`='".$_POST['review']."',`date`= date_format(CURDATE(),'%M %e, %Y') WHERE review_id=".$_GET['reviewId'];
+	//echo $sql;
 	$result = mysqli_query($mysqli, $sql);
 
 }
@@ -23,7 +23,7 @@ if(isset($_POST['addReview'])){
 	<div class='row'>
 		<center><img src="img/logoo.png" class="logoPic"></center>
 		<?php
-		if(isset($_POST['addReview'])){
+		if(isset($_POST['reviewTitle'])){
 			if($result){
 				echo "<div class='success-pop'>";
 		      	echo "<div class='col-md-4 col-md-offset-4 text-center' style='color:#292929;
@@ -34,7 +34,7 @@ if(isset($_POST['addReview'])){
 		                                                                border-radius:10px;
 		                                                                margin-bottom:20px;
 		                                                                ''>";
-		      	echo "<span class='glyphicon glyphicon-ok' style='color:#f1ba18'></span> <b>".$_POST['reviewTitle']."</b> has been added to the reviews";
+		      	echo "<span class='glyphicon glyphicon-ok' style='color:#f1ba18'></span> <b>".$_POST['reviewTitle']."</b> has been edited";
 		      	echo "</div>";
 		      	echo "</div>";
 			}else{
@@ -47,7 +47,7 @@ if(isset($_POST['addReview'])){
 		                                                                border-radius:10px;
 		                                                                margin-bottom:20px;
 		                                                                ''>";
-		      	echo "<span class='glyphicon glyphicon-exclamation-sign' style='color:#f1ba18'></span> <b>".$_POST['reviewTitle']."</b> has not been added to the reviews";
+		      	echo "<span class='glyphicon glyphicon-exclamation-sign' style='color:#f1ba18'></span> <b>There's an error in updating ".$_POST['reviewTitle']."</b>";
 		      	echo "</div>";
 		      	echo "</div>";
 			}
@@ -63,32 +63,47 @@ if(isset($_POST['addReview'])){
 			<h3><?php
 					echo "<a href='viewmovie".$_GET['genreName'].".php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."'><span class='glyphicon glyphicon-chevron-left' style='color:#f0ba18'></span></a>"; 
 				?>
-				Add Review for Movie 
+				Edit Review for Movie 
 				<?php
-						$specificMovie = "SELECT * FROM `movie` JOIN director ON movie.director_id = director.director_id WHERE genre_id=".$_GET['genreId']." AND movie_id=".$_GET['movieId'];
-						$result = mysqli_query($mysqli, $specificMovie);
+						// $specificMovie = "SELECT * FROM `movie` JOIN director ON movie.director_id = director.director_id WHERE genre_id=".$_GET['genreId']." AND movie_id=".$_GET['movieId'];
+						// $result = mysqli_query($mysqli, $specificMovie);
 
-						if(($result->num_rows) != 0){
-							while($row = mysqli_fetch_array($result)){
-								echo "<b>".$row[1]."</b>";
-							}
-						}
+						// if(($result->num_rows) != 0){
+						// 	while($row = mysqli_fetch_array($result)){
+						// 		echo "<b>".$row[1]."</b>";
+						// 	}
+						// }
 				?>
 			</h3>
 			<?php
-				echo "<form method = 'POST' action='addreview.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."'>";
+				echo "<form method = 'POST' action='editReview.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."&&reviewId=".$_GET['reviewId']."'>";
 			?>
-				Movie Review Title
-				<input class="form-control" placeholder="Movie Review Title" required="required" name='reviewTitle'> <br>
-				Movie Review
-				<textarea class="form-control" placeholder="Type Review Here..." rows="6" required="required" name='review'></textarea> <br>
-				
-				<div class='row text-center' style='margin-bottom:10px; margin-top:30px'>
-		  			<button class='btn btnLogin chckinMovieRev' type ='submit' name='addReview'>ADD REVIEW</button><br><br>
-		  			<?php
-		  				echo "<a href='viewmovie".$_GET['genreName'].".php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."' class='btn btnAdd cancelAction'>CANCEL</a>"
+				<?php
+					echo "Movie Review Title";
+					$sql = "SELECT * FROM `review` JOIN user ON user.user_id = review.user_id WHERE review_id=".$_GET['reviewId'];
+					$result = mysqli_query($mysqli, $sql);
+					$row = mysqli_fetch_array($result);
 
-		  			?>
+					//print_r($row);
+					// if(($result->num_rows) != 0){
+					// 	while($row = mysqli_fetch_row($result)){
+						if($row[2] == ""){
+							echo "<input class='form-control' required='required' value ='' name='reviewTitle'> <br>";
+						}else{
+							echo "<input class='form-control' required='required' value ='".$row[2]."' name='reviewTitle'> <br>";
+						}
+					
+					echo "Movie Review";
+						if($row[3] == ""){
+							echo "<textarea class='form-control' rows='6' required='required' name='review'></textarea> <br>";
+						}else{
+							echo "<textarea class='form-control' rows='6' required='required' name='review'>".$row[3]."</textarea> <br>";
+						}	
+					echo "<div class='row text-center' style='margin-bottom:10px; margin-top:30px'>";
+				  	echo "<button class='btn btnLogin chckinMovieRev' type ='submit' name='addReview'>EDIT REVIEW</button><br><br>";
+				  	echo "<a href='viewmovie".$_GET['genreName'].".php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."' class='btn btnAdd cancelAction'>CANCEL</a>"
+
+		  		?>
 	  			</div>
   			</form>
 		</div>

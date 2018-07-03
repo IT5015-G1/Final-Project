@@ -123,20 +123,7 @@ include("sql_connect.php");
 				<h3>Reviews</h3>
 				<div class="col-md-6">
 					<?php
-					// if(isset($_GET['reviewTitle'])){
-					// 	echo "<div class='success-pop'>";
-				 //      	echo "<div class='col-md-4 col-md-offset-4 text-center' style='color:#292929;
-				 //                                                                border:1px solid #f1ba18;
-				 //                                                                background-color:#ffffff;
-				 //                                                                box-shadow:10px 5px 10px gray;
-				 //                                                                padding:15px 10px 15px 10px;
-				 //                                                                border-radius:10px;
-				 //                                                                margin-bottom:20px; float:right;
-				 //                                                                ''>";
-				 //      	echo "<span class='glyphicon glyphicon-exclamation-sign' style='color:#f1ba18'></span> <b>".$_GET['reviewTitle']."</b> has been added to the reviews";
-				 //      	echo "</div>";
-				 //      	echo "</div>";
-					// }
+					
 
 				?>
 				<div style='height:70%; overflow-y: scroll;'>
@@ -151,19 +138,17 @@ include("sql_connect.php");
 								}else{
 									echo "<h4>".$row[2]."</h4>";
 								}
-								echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i><br>";
+								if($row[6] == $_GET['id']){
+									echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i>
+									<a href='editReview.php?id=".$_GET['id']."&&firstName=".$_GET['firstName']."&&genreId=".$_GET['genreId']."&&genreName=".$_GET['genreName']."&&movieId=".$_GET['movieId']."&&reviewId=".$row[0]."' style='padding:5px; color:#f0b518;'><span class='glyphicon glyphicon-plus'></span></a><br>";
+								}else{
+									echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i><br>";
+								}
 								echo $row[3]." <hr>";
 							}
 						}
 
 					?>
-					<!-- <h4>Scariest Movie I've Seen In Years!!!</h4>
-					<i><b>Chad Brinkman31</b> March 2011</i><br>
-					I went into this movie confident that it would be a cheesy, campy romp with the same "tried and true tricks of the trade," like when the hero is investigating the creepy music coming from the basement and a cat jumps into frame, but I quickly discovered that this would not be case with Insidious. After watching the move and obsessing on it for about 12 hours now, I can honestly say it's one of the scariest movies I've ever seen. In fact, there were several points during the film where I screamed like a 13-year old girl at a Justin Beiber concert. Keep in mind I was consciously trying my hardest to keep my composure, mainly because I was sitting beside my new girlfriend of 2 months. She, incidentally, didn't make a peep; thankfully, I later found out she had her eyes closed the whole time. <hr>
-
-					<h4>I will have trouble sleeping tonight....</h4>
-					<i>blackmambamark3 April 2011</i><br>
-					Of all the genre's that Hollywood has to offer, the most tattered of the bunch is without a doubt the horror department. I am so sick of these wannabe 'so called' horror flicks that belong on late night lifetime channel. Im sick of the same old parlor tricks and scare tactics that have been used for the past 10 years. And i am even more sickened by the fact that they keep making the same crap year after year. You would figure after great horror flicks like "The Decent" and "Paranormal Activity", studios would start realizing what actually works and what audiences want to see. Hopefully in the coming years, this genre' will come back to life.<hr> -->
 				</div>
 
 					<div class='row text-center' style='margin-bottom:10px; margin-top:50px'>
