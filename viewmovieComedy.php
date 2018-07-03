@@ -88,7 +88,7 @@ include("sql_connect.php");
 		<br>
 		<!-- <p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find out how this can be done.</p> -->
 
-		<div class="jumbotron"">
+		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-6">
 					<?php
@@ -136,7 +136,7 @@ include("sql_connect.php");
 								if($row[2] == ""){
 									echo "<h4>NO REVIEW TITLE</h4>";
 								}else{
-									echo "<h4>".$row[2]."</h4>";
+									echo "<h4>".$row[1]."</h4>";
 								}
 								if($row[6] == $_GET['id']){
 									echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i>
