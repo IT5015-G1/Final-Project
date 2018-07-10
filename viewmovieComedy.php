@@ -136,7 +136,7 @@ include("sql_connect.php");
 								if($row[2] == ""){
 									echo "<h4>NO REVIEW TITLE</h4>";
 								}else{
-									echo "<h4>".$row[1]."</h4>";
+									echo "<h4>".$row[2]."</h4>";
 								}
 								if($row[6] == $_GET['id']){
 									echo "<i><b>".$row[7]." ".$row[8]."</b> ".$row[5]."</i>
